@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sweet Heart ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+background:linear-gradient(135deg,#000,#111,#ff1493);
+font-family:'Poppins',sans-serif;
+color:white;
+text-align:center;
+overflow-x:hidden;
+}
+
+h1{
+font-family:'Dancing Script',cursive;
+font-size:3rem;
+margin-top:30px;
+color:#ff69b4;
+text-shadow:0 0 20px #ff1493;
+}
+
+.subtitle{
+margin-top:10px;
+font-size:18px;
+}
+
+.slider{
+width:90%;
+max-width:360px;
+margin:25px auto;
+overflow:hidden;
+border-radius:20px;
+border:2px solid #ff1493;
+box-shadow:0 0 25px rgba(255,20,147,.7);
+}
+
+.slider img{
+width:100%;
+display:none;
+}
+
+.slider img.active{
+display:block;
+}
+
+.letter{
+width:90%;
+margin:20px auto;
+background:rgba(0,0,0,.65);
+border:1px solid #ff1493;
+border-radius:20px;
+padding:25px;
+line-height:1.9;
+box-shadow:0 0 20px rgba(255,20,147,.5);
+}
+
+.letter h2{
+font-family:'Dancing Script',cursive;
+font-size:2rem;
+margin-bottom:15px;
+color:#ff69b4;
+}
+
+.question{
+font-size:30px;
+margin-top:25px;
+font-weight:bold;
+}
+
+.buttons{
+position:relative;
+height:150px;
+margin-top:20px;
+}
+
+button{
+padding:14px 28px;
+border:none;
+border-radius:40px;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+}
+
+#yesBtn{
+background:#ff1493;
+color:white;
+box-shadow:0 0 15px #ff1493;
+}
+
+#noBtn{
+background:#111;
+color:#ff1493;
+border:1px solid #ff1493;
+position:absolute;
+margin-left:20px;
+}
+
+.final{
+display:none;
+font-family:'Dancing Script',cursive;
+font-size:28px;
+padding:30px;
+}
+
+.heart{
+position:fixed;
+font-size:24px;
+pointer-events:none;
+animation:float 6s linear infinite;
+}
+
+@keyframes float{
+0%{
+transform:translateY(100vh);
+opacity:1;
+}
+100%{
+transform:translateY(-100px);
+opacity:0;
+}
+}
+</style>
+</head>
+<body>
+
+<audio autoplay loop>
+<source src="romantic-music.mp3" type="audio/mpeg">
+</audio>
+
+<h1>My Sweet Heart ❤️</h1>
+
+<div class="subtitle">
+52 Beautiful Days Since 10 June 💕
+</div>
+
+<div class="slider">
+<img src="photo1.png" class="active">
+<img src="photo2.png">
+<img src="photo3.png">
+<img src="photo4.png">
+</div>
+
+<div class="letter">
+
+<h2>For You 💖</h2>
+
+<p>
+Dear Sweet Heart,
+
+<br><br>
+
+10 June se lekar aaj tak, har din mere liye special raha hai.
+
+I never thought someone could become so important to me in such a short time.
+
+Jab bhi tumse baat hoti hai, mera din better ho jata hai.
+
+Tumhari smile, tumhari cute baatein, aur tumhara nature mujhe hamesha khush kar deta hai.
+
+These 52 beautiful days have given me memories that I will always cherish.
+
+Shayad main perfect nahi hoon, but one thing is true...
+
+You have become a very special part of my life.
+
+Whenever I think about the future, I imagine more smiles, more happiness, and more memories with you.
+
+Aaj main dil se tumse ek baat poochna chahta hoon...
+
+</p>
+
+</div>
+
+<div class="question">
+Will You Be My Girlfriend? ❤️
+</div>
+
+<div class="buttons">
+<button id="yesBtn">YES 💖</button>
+<button id="noBtn">NO 😅</button>
+</div>
+
+<div class="final" id="final">
+💖 You Just Made Me The Happiest Person In The World 💖
+<br><br>
+Forever Yours,
+<br>
+❤️ Hitean ❤️
+</div>
+
+<script>
+
+let slides=document.querySelectorAll(".slider img");
+let current=0;
+
+setInterval(()=>{
+slides[current].classList.remove("active");
+current=(current+1)%slides.length;
+slides[current].classList.add("active");
+},2500);
+
+const noBtn=document.getElementById("noBtn");
+
+function moveButton(){
+const x=Math.random()*250;
+const y=Math.random()*100;
+noBtn.style.left=x+"px";
+noBtn.style.top=y+"px";
+}
+
+noBtn.addEventListener("mouseover",moveButton);
+noBtn.addEventListener("click",moveButton);
+noBtn.addEventListener("touchstart",moveButton);
+
+document.getElementById("yesBtn").addEventListener("click",()=>{
+
+document.querySelector(".buttons").style.display="none";
+document.getElementById("final").style.display="block";
+
+for(let i=0;i<60;i++){
+
+let heart=document.createElement("div");
+
+heart.innerHTML="💖";
+heart.classList.add("heart");
+
+heart.style.left=Math.random()*100+"vw";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},6000);
+}
+
+});
+
+setInterval(()=>{
+
+let heart=document.createElement("div");
+
+heart.innerHTML="💗";
+heart.classList.add("heart");
+
+heart.style.left=Math.random()*100+"vw";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},6000);
+
+},800);
+
+</script>
+
+</body>
+</html>
